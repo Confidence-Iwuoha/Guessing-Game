@@ -1,0 +1,36 @@
+#Beginner Friendly Guessing Game
+
+import random
+
+generated_number = random.randrange(0,10,1)
+guesses = 0
+Guess = input("Please type a Number: ")
+
+if Guess.isdigit():
+    Guess = int(Guess)
+    if 0 < int(Guess) > 10:
+        print("Wrong!! Guess a number between 0 and 10")
+        quit()
+else:
+    print("Invalid!!! Guess must be a number between 0 and 10: ")
+
+while True:
+    guesses += 1
+    Guess = input("Guess an Odd number from 0 to 10: ")
+    if Guess.isdigit():
+        Guess = int(Guess)
+        if 0 < int(Guess) > 10:
+            print("Wrong!! Guess a number between 0 and 10")
+            quit()
+    else:
+        print("Invalid!!! Guess must be a number between 0 and 10")
+        continue
+    if int(Guess) == generated_number:
+        print("Congrats you got it!!")
+        break
+    elif int(Guess) > generated_number:
+        print("You guessed above the number")
+    else:
+        print("You guessed below the number")
+
+print(f"You got it in {guesses} guesses")
